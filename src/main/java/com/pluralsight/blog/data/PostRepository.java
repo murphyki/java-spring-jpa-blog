@@ -1,14 +1,15 @@
 package com.pluralsight.blog.data;
 
 import com.pluralsight.blog.model.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
-public class PostRepository {
+public interface PostRepository extends JpaRepository<Post, Long> {
 
-    private final List<Post> ALL_POSTS = new ArrayList<>(Arrays.asList(
+    /*private final List<Post> ALL_POSTS = new ArrayList<>(Arrays.asList(
             new Post(1l, "Earbuds",
                     "You have got to try these in your ears. So tiny and can even block the sounds of screaming toddlers if you so desire.",
                     "You have got to try these in your ears. So tiny and can even block the sounds of screaming toddlers if you so desire.",
@@ -37,17 +38,17 @@ public class PostRepository {
                     "You never know when inspiration for your latest novel will strike. Meet the perfect travel keyboard for your random thoughts.",
                     "You never know when inspiration for your latest novel will strike. Meet the perfect travel keyboard for your random thoughts.",
                     "Sarah Holderness", new Date("10/31/2019"))
-    ));
+    ));*/
 
-    public List<Post> findAll() {
-        return ALL_POSTS;
-    }
+    //public List<Post> findAll() {
+    //    return ALL_POSTS;
+    //}
 
-    public Optional<Post> findById(Long id) {
-        for(Post post : ALL_POSTS) {
-            if (post.getId() == id)
-                return Optional.of(post);
-        }
-        return Optional.empty();
-    }
+    //public Optional<Post> findById(Long id) {
+    //    for(Post post : ALL_POSTS) {
+    //        if (post.getId() == id)
+    //            return Optional.of(post);
+    //    }
+    //    return Optional.empty();
+    //}
 }
